@@ -1,1 +1,4 @@
-web: python blogs/manage.py runserver 0.0.0.0:\$PORT" 
+
+web: gunicorn blogs.wsgi:application --log-file - --log-level debug
+heroku ps:scale web=1
+python manage.py migrate
