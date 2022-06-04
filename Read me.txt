@@ -1,0 +1,14 @@
+1.First we can login using id and password , a token is generated, and it will 
+will be available in google authenticator,this token code should be entered
+in UI.
+for credentials go to credentials.txt
+
+2.If you don't login you cannot see publish button, if you can login then
+you will be treated as admin, superadmin is admin page where he can
+read blogs and approve it.
+
+3.So for normal readers publish button wont appear, for admins it will 
+be approved by superadmin.
+
+4.In my screen shots folder you can see the process, I have provided 
+Snapshots.

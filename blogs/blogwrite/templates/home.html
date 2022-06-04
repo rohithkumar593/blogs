@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+.straight
+{
+    font-size: 30px;
+    font-size: 20px;
+    text-align: center;
+    
+    
+}
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+    <title>"List of Blogs"</title>
+    <body>
+        <h2 style="text-align:center;">Blogs</h2>
+          
+ 
+        <div class="row">
+            <div class="leftcolumn">
+            {%  for i in object_list %}
+            {% if i.admin_approved %}
+              <div class="card">
+                <h2>{{ i.title }}</h2>
+                <h5>{{ i.author }}</h5>
+                <p>{{ i.body }}</p>
+              </div>
+              {% endif %}
+            {% endfor %}
+            </div>
+            <div class="rightcolumn">
+                <div class="straight">
+                    {% if user.is_authenticated %}
+                    <h2><a href="{% url "logout" %}" style="text-decoration: none;"><span class="glyphicon glyphicon-log-out"></span> &nbsp; Logout</a></h2>
+                    {% else %}
+                    <h2><a href="{% url "register" %}" style="text-decoration: none;"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign up</a></h2>
+                    <h2><a href="{% url 'login' %}" style="text-decoration: none;"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Log in</a></h2>
+                    {% endif %}
+        
+                </div>
+                </div>  
+        </div>
+        <div class="footer">
+            {% if user.is_authenticated %}
+            <button onclick=location.href='/form_open'>Publish</button>
+            {% endif %}
+          </div>
+        
+        
+            
+            
+            
+        
+    </body>
+</html>
