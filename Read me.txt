@@ -1,14 +1,33 @@
-1.First we can login using id and password , a token is generated, and it will 
-will be available in google authenticator,this token code should be entered
-in UI.
-for credentials go to credentials.txt
+I have provided two snapshots, one in offline mode and one in deployment.
 
-2.If you don't login you cannot see publish button, if you can login then
-you will be treated as admin, superadmin is admin page where he can
-read blogs and approve it.
+For offline i have written code in such a manner it connects and saves
+model into database and fetches data.
 
-3.So for normal readers publish button wont appear, for admins it will 
-be approved by superadmin.
+Idea here is admin , will be given credentials , and for user
+publish button will not be visible.for super user he will check in 
+admin page.
 
-4.In my screen shots folder you can see the process, I have provided 
-Snapshots.
+I have tried to do the same in online , but for database it is chargeable
+so i have done only frontend for displaying responsive data in ui for production
+
+Data base connection is not possible.So 
+
+credentials are 
+username - rohithkumar
+password - rohithkumar
+
+but credentials asks for two factor authenetication which mapped to my
+gmail account , so for this it requires my entry. 
+
+else, without two factor authenetication - 
+
+credentials are 
+username - ramu
+password -  ramu@1234
+
+
+so , check ui in production mode , but data will not be stored it will display static
+page , but in folder i have sent I have established database connection and
+data will be entered dynamically.Online link is only for ui
+
+
