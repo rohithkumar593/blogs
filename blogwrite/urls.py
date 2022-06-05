@@ -4,6 +4,6 @@ from .views import BlogView,openForm,publish
 app_name='blogwrite'
 urlpatterns = [
     path('form_open/publish/',publish),
-    path('',BlogView.as_view())
+    path('',BlogView)
     
 ]

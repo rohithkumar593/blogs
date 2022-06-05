@@ -1,6 +1,9 @@
+reference:
+	offline mode  - folder in form of zip i have sent 
+
 I have provided two snapshots, one in offline mode and one in deployment.
 
-For offline i have written code in such a manner it connects and saves
+For offline mode i have written code in such a manner it connects and saves
 model into database and fetches data.
 
 Idea here is admin , will be given credentials , and for user

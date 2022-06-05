@@ -89,6 +89,18 @@ body {
  
         <div class="row">
             <div class="leftcolumn">
+            {% if sorted %}
+            {%  for i in object_list %}
+            {% if i.admin_approved %}
+              <div class="card">
+                <h2>{{ i.title }}</h2>
+                <h5>{{ i.author }}</h5>
+                <p>{{ i.body }}</p>
+              </div>
+              {% endif %}
+            
+              {% endfor %}
+            {% else %}
             {%  for i in object_list %}
             {% if i.admin_approved %}
               <div class="card">
@@ -98,6 +110,7 @@ body {
               </div>
               {% endif %}
             {% endfor %}
+            {% endif %}
             </div>
             <div class="rightcolumn">
                 <div class="straight">
@@ -106,7 +119,14 @@ body {
                     {% else %}
                     <h2><a href="{% url "register" %}" style="text-decoration: none;"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign up</a></h2>
                     <h2><a href="{% url 'login' %}" style="text-decoration: none;"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Log in</a></h2>
+                    
                     {% endif %}
+                    <h2><a href="{% url 'sort' %}" style="text-decoration: none;"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Sort</a></h2>
+                    <form method="post" action="" style="margin: 0">
+                      {% csrf_token %}
+                      <input  id="search" type="text" name="search"  placeholder="Search..." >
+                      <button id="search_submit" type="submit" >Submit</button>
+                  </form>
         
                 </div>
                 </div>  
